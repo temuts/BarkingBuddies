@@ -1,0 +1,94 @@
+
+/* custom navbar */
+.navbar-nav{
+    align-items: center;
+}
+
+.bark-btn{
+    background-color: #D58452;
+    border-radius: 20px;
+    border: 2px solid #D58452;
+    color: white;
+    filter: drop-shadow(0 3px 2px #479881);
+}
+
+.bark-btn:hover{
+    background-color: #d7a07e !important;
+    border: 2px solid #d7a07e !important;
+    color: white !important;
+    filter: drop-shadow(0 3px 2px #479881);
+}
+
+.bark-btn:active{
+    background-color: #D58452 !important;
+    border: 2px solid #D58452 !important;
+    color: white!important;
+    filter: drop-shadow(0 1px 2px #479881);
+}
+
+#bark-navbar{
+    background-color: #73B3BC !important;
+    padding: 10px 50px;
+}
+
+#bark-navbar .nav-item a{
+    color: white;
+    padding: 0px 25px;
+    border-left: 2px solid #479881;
+}
+
+/* custom Text on cards */
+.card-body .text-body-secondary{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+#befriend-btn{
+    position: absolute;
+    width: 140px;
+    height: 50px;
+    left: 18px;
+    bottom: 0;
+    background: none;
+    border: none;
+}
+
+#befriend-btn-text{
+    position: absolute;
+    bottom: 12px;
+    left: 48px;
+    color: white;
+}
+
+#befriend-btn svg{
+    width: 140px;
+    height: 50px;
+}
+
+/* responsive Navbar */
+@media (min-width: 992px )
+{
+    .navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    }
+}
+
+/* responsive dog cards */
+@media (max-width:1200px )
+{
+    #befriend-btn{
+         left: 2px;
+         bottom: 40px;
+    }
+}
+
+@media (max-width: 992px)
+{
+    #befriend-btn{
+         left: -22px;
+         top: 80px;
+    }
+}
+
