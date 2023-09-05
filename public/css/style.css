@@ -92,3 +92,33 @@
     }
 }
 
+.custom-disabled-btn {
+    background-color: #D58452;
+    color: #fff; /* Set the text color to ensure visibility */
+    cursor: not-allowed; /* Change cursor on hover to indicate it's disabled */
+}
+
+.custom-dark-blue-btn{
+    background-color: #478991;
+    color: #fff;
+    font-size: medium;
+}
+
+.custom-light-btn{
+    background-color:#73B3BC;
+}
+
+.bio-text{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.modal-content {
+    padding: 20px;
+}
+.day-button {
+    margin: 5px;
+}
+.selected-button {
+    background-color:#D58452 ;
+    color: white;
+}
