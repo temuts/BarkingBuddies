@@ -1,38 +1,42 @@
-      <div class="container-md pt-5">
-        <div class="row">
-            <!-- Start of Puppy and Owner text fields -->
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="container-md pt-5">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="container mt-3">
-                                        <h5>Your Dog's Name</h5>
-                                        <h2><input type="text" class="form-control" placeholder="John Doe"></h2>
-                                        <div class="pb-3">
-                                        <h5>Bio</h5>
-                                        <small class="form-text text-muted bio-text">Provide some details about your dog that you would want their Barking Buddies to know! This can include favourite hobbies, defining characteristics, or random facts.</small>
+<div class="container-md pt-5 text-center"> 
+        <h1 class="display-6">Register for Barking Buddies</h1> 
+    </div>
+        <!-- Start of Puppy and Owner text fields -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="container-md pt-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="container mt-3">
+                                    <div class="mb-4">
+                                        <img src="user-profile.jpg" alt="Dog Profile Picture" class="img-fluid rounded-circle">
                                     </div>
-                                        <p><textarea class="form-control" rows="5" placeholder="hobbies, fun facts, etc."></textarea></p>
-                                        <div class="pb-3">
-                                            <h5>Barking Buddy Details</h5>
-                                            <!-- Text input for Age -->
-                                            <div class="mb-3">
-                                                <label for="dogAge" class="form-label">Age</label>
-                                                <input type="text" class="form-control" id="dogAge" placeholder="Age">
-                                            </div>
-                                            <!-- Text input for Breed -->
-                                            <div class="mb-3">
-                                                <label for="dogBreed" class="form-label">Breed</label>
-                                                <input type="text" class="form-control" id="dogBreed" placeholder="Breed">
-                                            </div>
-                                            <!-- Text input for Gender -->
-                                            <div class="mb-3">
-                                                <label for="dogGender" class="form-label">Gender</label>
-                                                <input type="text" class="form-control" id="dogGender" placeholder="Gender">
-                                            </div>
+                                    <h5>Your Dog's Name</h5>
+                                    <h2><input type="text" class="form-control" placeholder="John Doe"></h2>
+                                    <div class="pb-3">
+                                    <h5>Bio</h5>
+                                    <small class="form-text text-muted bio-text">Provide some details about your dog that you would want their Barking Buddies to know! This can include favourite hobbies, defining characteristics, or random facts.</small>
+                                </div>
+                                    <p><textarea class="form-control" rows="5" placeholder="hobbies, fun facts, etc."></textarea></p>
+                                    <div class="pb-3">
+                                        <h5>Barking Buddy Details</h5>
+                                        <!-- Text input for Age -->
+                                        <div class="mb-3">
+                                            <label for="dogAge" class="form-label">Age</label>
+                                            <input type="text" class="form-control" id="dogAge" placeholder="Age">
                                         </div>
+                                        <!-- Text input for Breed -->
+                                        <div class="mb-3">
+                                            <label for="dogBreed" class="form-label">Breed</label>
+                                            <input type="text" class="form-control" id="dogBreed" placeholder="Breed">
+                                        </div>
+                                        <!-- Text input for Gender -->
+                                        <div class="mb-3">
+                                            <label for="dogGender" class="form-label">Gender</label>
+                                            <input type="text" class="form-control" id="dogGender" placeholder="Gender">
+                                            </div>
+                                    </div>
                                         <h6>Upload Your Image</h6>
                                         <form action="upload.php" method="POST" enctype="multipart/form-data">
                                             <input type="file" name="image" accept="image/*" required>
@@ -43,7 +47,9 @@
                         
                                 <div class="col-md-6">
                                     <div class="container mt-3">
-                                    
+                                        <div class="mb-4">
+                                            <img src="user-profile.jpg" alt="User Profile Picture" class="img-fluid rounded-circle">
+                                        </div>
                                         <h5>Your Name</h5>
                                         <h2><input type="text" class="form-control" placeholder="Jane Doe"></h2>
                               
@@ -63,17 +69,17 @@
                             </div>
                         </div>
                         <button type="button" class="btn custom-dark-blue-btn m-3" data-bs-toggle="modal" data-bs-target="#dayModal">Select Days of the Week</button>
-     <!-- The day selector modal -->
-     <div class="modal fade" id="dayModal" tabindex="-1" aria-labelledby="dayModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="dayModalLabel">Select Days of the Week</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <button type="button" class="btn btn-secondary" id="clearSelectionBtn">Clear</button>
-                    <div>
+                        <!-- The day selector modal -->
+                        <div class="modal fade" id="dayModal" tabindex="-1" aria-labelledby="dayModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="dayModalLabel">Select Days of the Week</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <button type="button" class="btn btn-secondary" id="clearSelectionBtn">Clear</button>
+                        <div>
                         <button class="btn custom-light-btn day-button" data-day="Sunday">Sunday</button>
                         <button class="btn custom-light-btn day-button" data-day="Monday">Monday</button>
                         <button class="btn custom-light-btn day-button" data-day="Tuesday">Tuesday</button>
@@ -81,15 +87,15 @@
                         <button class="btn custom-light-btn day-button" data-day="Thursday">Thursday</button>
                         <button class="btn custom-light-btn day-button" data-day="Friday">Friday</button>
                         <button class="btn custom-light-btn day-button" data-day="Saturday">Saturday</button>
+                        </div>
+                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn custom-dark-blue-btn" id="saveDaysBtn" data-bs-dismiss="modal">Save</button>
+                        </div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn custom-dark-blue-btn" id="saveDaysBtn" data-bs-dismiss="modal">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="selectedDaysDisplay"></div>
                         <div class="p-3">
                         <button type="button" class="btn btn-lg custom-disabled-btn" disabled>Sign Me Up!</button>
@@ -97,9 +103,3 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
- 
-<script src="/js/register.js"></script>
-    
-   

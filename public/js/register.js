@@ -71,11 +71,6 @@ saveDaysBtn.addEventListener('click', () => {
     closeModal();
 });
 
-// ...
-
-// Event listeners
-
-// ...
 
 // Event listener for the "Clear Selection" button inside the modal
 document.getElementById('clearSelectionBtn').addEventListener('click', () => {

@@ -122,3 +122,34 @@
     background-color:#D58452 ;
     color: white;
 }
+
+.dog-profile-box{
+    background-color: #316e75;
+    color: white;
+    margin-left: 3px;
+    border-radius:10px;
+}
+
+.user-profile-box{
+    background-color: #ca6f36;
+    color: #fff;
+    margin-right: 3px;
+    border-radius:10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
