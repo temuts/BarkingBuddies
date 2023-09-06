@@ -1,38 +1,39 @@
-      <div class="container-md pt-5">
-        <div class="row">
-            <!-- Start of Puppy and Owner text fields -->
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="container-md pt-5">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="container mt-3">
-                                        <h5>Your Dog's Name</h5>
-                                        <h2><input type="text" class="form-control" placeholder="John Doe"></h2>
-                                        <div class="pb-3">
-                                        <h5>Bio</h5>
-                                        <small class="form-text text-muted bio-text">Provide some details about your dog that you would want their Barking Buddies to know! This can include favourite hobbies, defining characteristics, or random facts.</small>
-                                    </div>
-                                        <p><textarea class="form-control" rows="5" placeholder="hobbies, fun facts, etc."></textarea></p>
-                                        <div class="pb-3">
-                                            <h5>Barking Buddy Details</h5>
-                                            <!-- Text input for Age -->
-                                            <div class="mb-3">
-                                                <label for="dogAge" class="form-label">Age</label>
-                                                <input type="text" class="form-control" id="dogAge" placeholder="Age">
-                                            </div>
-                                            <!-- Text input for Breed -->
-                                            <div class="mb-3">
-                                                <label for="dogBreed" class="form-label">Breed</label>
-                                                <input type="text" class="form-control" id="dogBreed" placeholder="Breed">
-                                            </div>
-                                            <!-- Text input for Gender -->
-                                            <div class="mb-3">
-                                                <label for="dogGender" class="form-label">Gender</label>
-                                                <input type="text" class="form-control" id="dogGender" placeholder="Gender">
-                                            </div>
+<div class="container-md pt-5 text-center"> <!-- Added 'text-center' class -->
+        <h1 class="display-6">Register for Barking Buddies</h1> <!-- Centered title -->
+    </div>
+        <!-- Start of Puppy and Owner text fields -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="container-md pt-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="container mt-3">
+                                    <h5>Your Dog's Name</h5>
+                                    <h2><input type="text" class="form-control" placeholder="John Doe"></h2>
+                                    <div class="pb-3">
+                                    <h5>Bio</h5>
+                                    <small class="form-text text-muted bio-text">Provide some details about your dog that you would want their Barking Buddies to know! This can include favourite hobbies, defining characteristics, or random facts.</small>
+                                </div>
+                                    <p><textarea class="form-control" rows="5" placeholder="hobbies, fun facts, etc."></textarea></p>
+                                    <div class="pb-3">
+                                        <h5>Barking Buddy Details</h5>
+                                        <!-- Text input for Age -->
+                                        <div class="mb-3">
+                                            <label for="dogAge" class="form-label">Age</label>
+                                            <input type="text" class="form-control" id="dogAge" placeholder="Age">
                                         </div>
+                                        <!-- Text input for Breed -->
+                                        <div class="mb-3">
+                                            <label for="dogBreed" class="form-label">Breed</label>
+                                            <input type="text" class="form-control" id="dogBreed" placeholder="Breed">
+                                        </div>
+                                        <!-- Text input for Gender -->
+                                        <div class="mb-3">
+                                            <label for="dogGender" class="form-label">Gender</label>
+                                            <input type="text" class="form-control" id="dogGender" placeholder="Gender">
+                                            </div>
+                                    </div>
                                         <h6>Upload Your Image</h6>
                                         <form action="upload.php" method="POST" enctype="multipart/form-data">
                                             <input type="file" name="image" accept="image/*" required>
@@ -97,9 +98,3 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
- 
-<script src="/js/register.js"></script>
-    
-   
