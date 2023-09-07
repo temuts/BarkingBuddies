@@ -1,32 +1,22 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Profile extends Model {}
+class Availability extends Model {}
 
-Profile.init(
+Availability.init(
   {
-    profile_id: {
+    availability_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.TEXT,
-    },
-    phone:{
+    day_id: {
         type: DataTypes.INTEGER,
-        allowNull:false,
-        validate:{
-            isNumeric: true,
-        },     
-    },
-    image: {
-        type: DataTypes.BLOB("long"),
+        references: {
+          model: 'days',
+          key: 'day_id',
+        },
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -41,6 +31,6 @@ Profile.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'profile',
+    modelName: 'availability',
   }
 );
