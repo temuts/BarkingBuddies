@@ -1,4 +1,6 @@
 
+/* ================ HOMEPAGE ==================== */
+
 /* custom navbar */
 .navbar-nav{
     align-items: center;
@@ -66,6 +68,12 @@
     height: 50px;
 }
 
+#befriend-btn:hover{
+    width: 140px;
+    height: 50px;
+    transform: rotate(5deg);
+}
+
 /* responsive Navbar */
 @media (min-width: 992px )
 {
@@ -92,3 +100,128 @@
     }
 }
 
+/* this is for mobile for cards */
+@media (max-width: 768px)
+{
+    #befriend-btn{
+         left: 0px;
+         top: 0px;
+    }
+}
+
+
+/* ============= REGISTRATION PAGE ==================== */
+
+/* added by Tem */
+.custom-disabled-btn {
+    background-color: #D58452;
+    color: #fff; /* Set the text color to ensure visibility */
+    cursor: not-allowed; /* Change cursor on hover to indicate it's disabled */
+}
+
+.custom-dark-blue-btn{
+    background-color: #478991;
+    color: #fff;
+    font-size: medium;
+}
+
+.custom-light-btn{
+    background-color:#73B3BC;
+}
+
+.bio-text{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.modal-content {
+    padding: 20px;
+}
+.day-button {
+    margin: 5px;
+}
+.selected-button {
+    background-color:#D58452 ;
+    color: white;
+}
+
+
+/* ================= MEETUP PAGE ==================== */
+
+.meetup .card{
+    border: none;
+}
+
+.meetup img{
+    width: 20vw;
+    align-self:center;
+}
+
+.meetup small span{
+    font-size: x-large;
+    font-weight: 500;
+    padding-left: 15px;
+}
+
+@media (max-width: 992px)
+{
+    .meetup img{
+        width: 35vw;
+        align-self: self-start;
+        margin-bottom: 30px ;
+    }
+}
+
+
+/* ================= PROFILE PAGE ==================== */
+
+.dog-profile-box{
+    background-color: #316e75;
+    color: white;
+    margin-left: 3px;
+    border-radius:10px;
+}
+
+.user-profile-box{
+    background-color: #ca6f36;
+    color: #fff;
+    margin-right: 3px;
+    border-radius:10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+/* ================= SIGN UP / LOGIN PAGE ==================== */
+
+.login main{
+    height: 100vh;
+}
+
+.login body {
+    display: flex;
+    flex-direction: column;
+  }
+  .login .page-wrapper {
+    flex: 1 0 auto;
+    /* background-image: linear-gradient(#73B3BC, #479881); */
+  }
+  
+  .login .button{
+    background-color: #D58452;
+  }
