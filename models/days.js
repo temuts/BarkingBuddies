@@ -24,3 +24,5 @@ Days.init(
     modelName: 'days',
   }
 );
+
+module.exports = Days;
