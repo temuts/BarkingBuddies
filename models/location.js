@@ -11,11 +11,11 @@ Location.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    location: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-    }
+    },
   },
   {
     sequelize,
@@ -25,3 +25,5 @@ Location.init(
     modelName: 'location',
   }
 );
+
+module.exports = Location;

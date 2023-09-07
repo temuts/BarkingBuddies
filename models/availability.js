@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Availability extends Model {}
 
@@ -12,25 +12,27 @@ Availability.init(
       autoIncrement: true,
     },
     day_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'days',
-          key: 'day_id',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: "days",
+        key: "day_id",
+      },
     },
     user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'user_id',
-        },
-    }
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "user_id",
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'availability',
+    modelName: "availability",
   }
 );
+
+module.exports = Availability;
