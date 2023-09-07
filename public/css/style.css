@@ -204,3 +204,24 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+
+
+
+/* ================= SIGN UP / LOGIN PAGE ==================== */
+
+.login main{
+    height: 100vh;
+}
+
+.login body {
+    display: flex;
+    flex-direction: column;
+  }
+  .login .page-wrapper {
+    flex: 1 0 auto;
+    /* background-image: linear-gradient(#73B3BC, #479881); */
+  }
+  
+  .login .button{
+    background-color: #D58452;
+  }
