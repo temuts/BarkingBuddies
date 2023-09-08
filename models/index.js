@@ -4,6 +4,7 @@ const Days = require("./days");
 const Pets = require("./Pets");
 const Availability = require("./availability");
 const Location = require("./location");
+const Buddies = require("./buddies");
 
 // A signed up user can have one Profile
 User.hasOne(Profile, {
@@ -35,6 +36,23 @@ User.belongsToMany(Days, {
   targetKey: "day_id",
 });
 
+// Buddies table many-to-many associations.
+User.belongsToMany(User, {
+  through: {
+    model: Buddies,
+    unique: false,
+  },
+  as: "to_user",
+});
+
+User.belongsToMany(User, {
+  through: {
+    model: Buddies,
+    unique: false,
+  },
+  as: "from_user",
+});
+
 module.exports = {
   User,
   Profile,
@@ -42,4 +60,5 @@ module.exports = {
   Availability,
   Location,
   Pets,
+  Buddies,
 };

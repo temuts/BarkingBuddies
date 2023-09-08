@@ -17,3 +17,4 @@ router.post('/profile', async (req, res) => {
 });
 
 module.exports = router;
+//add post for profile table and pets table and availability table

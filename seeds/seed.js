@@ -4,6 +4,7 @@ const seedProfiles = require("./profile-seeds");
 const seedUsers = require("./user-seeds");
 const seedDays = require("./days-seeds");
 const seedAvailability = require("./availability-seeds");
+const seedBuddies = require("./buddies-seeds");
 
 const sequelize = require("../config/connection");
 
@@ -28,6 +29,9 @@ const seedAll = async () => {
 
   await seedAvailability();
   console.log("\n----- AVAILABILTIY SEEDED -----\n");
+
+  await seedBuddies();
+  console.log("\n----- BUDDIES SEEDED -----\n");
 
   process.exit(0);
 };

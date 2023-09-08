@@ -156,6 +156,39 @@
     align-self:center;
 }
 
+.meetup-info {
+    border: 1px solid #316e75;
+    text-align: center;
+    margin: 5px;
+    padding: 15px;
+    border-radius: 20px;
+    color: #316e75;
+}
+
+.meetup-info .col{
+    border-top: 1px solid #fff;
+    margin-top: 10px ;
+    padding-top: 10px;
+}
+
+.meetup-info .location{
+    padding-top: 25px;
+}
+
+.day-emojis{
+    font-size: x-large;
+}
+
+.owner-info{
+    padding-top: 20px;
+    border-radius: 20px;
+    color: rgb(168, 168, 168);
+}
+
+.owner-info img{
+width: 100px;
+}
+
 .meetup small span{
     font-size: x-large;
     font-weight: 500;
