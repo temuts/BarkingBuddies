@@ -46,6 +46,14 @@
     display: block;
 }
 
+.clamp{
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 #befriend-btn{
     position: absolute;
     width: 140px;
@@ -165,18 +173,28 @@
     color: #316e75;
 }
 
+.meetup-info h4{
+font-size: medium;
+color: rgb(168, 168, 168);
+}
+
 .meetup-info .col{
     border-top: 1px solid #fff;
     margin-top: 10px ;
     padding-top: 10px;
 }
 
-.meetup-info .location{
-    padding-top: 25px;
+.mingle-btn{
+    background-color: #ca6f36;
+    border-radius: 50px;
+    padding: 10px;
+    text-align: center;
+    color: white;
 }
 
-.day-emojis{
-    font-size: x-large;
+.mingle-btn:hover{
+    background-color: #D58452;
+    cursor: pointer;
 }
 
 .owner-info{
