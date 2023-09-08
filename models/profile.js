@@ -1,0 +1,52 @@
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+
+class Profile extends Model {}
+
+Profile.init(
+  {
+    profile_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "user_id",
+      },
+    },
+    location_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "location",
+        key: "location_id",
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "profile",
+  }
+);
+
+module.exports = Profile;
