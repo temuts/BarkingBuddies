@@ -15,3 +15,5 @@ router.post('/profile', async (req, res) => {
       res.status(500).json(err);
     }
 });
+
+//add post for profile table and pets table and availability table
