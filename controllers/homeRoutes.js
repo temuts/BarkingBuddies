@@ -1,4 +1,5 @@
 const router = require("express").Router();
+
 const {
   Pets,
   Availability,
@@ -33,13 +34,14 @@ router.get("/", async (req, res) => {
 
     res.render("homepage", {
       browse_pets,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/pets/:id", async (req, res) => {
   try {
     const petData = await Pets.findByPk(req.params.id, {
       include: [
@@ -62,6 +64,7 @@ router.get("/:id", async (req, res) => {
     console.log(pet);
 
     res.render("meetup", {
+      logged_in: req.session.logged_in,
       ...pet,
     });
   } catch (err) {
@@ -73,12 +76,28 @@ router.get("/profile", (req, res) => {
   res.render("profile");
 });
 
+// Route for user login - if logged in, redirect to the home page
 router.get("/login", (req, res) => {
-  res.render("login");
+  if (req.session.logged_in) {
+    res.redirect('/',);
+    return;
+  }
+  res.render('login');
+});
+
+// Route for user logout - on log out, redirect to the home page
+router.get('/logout', (req, res) => {
+  res.redirect('/');
+  return;
 });
 
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  } else {
+    res.render('signup');
+  }
 });
 
 router.get("/register", (req, res) => {

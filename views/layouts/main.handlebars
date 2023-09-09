@@ -27,7 +27,7 @@
                   </li>
                   {{#if logged_in}}
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page"href="/logout">Logout</a>
+                    <a class="nav-link" aria-current="page" id="logout" href="/logout">Logout</a>
                   </li>
                   {{else}}
                   <li class="nav-item">
@@ -55,6 +55,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+VH6r5cZ5/cp7bLtl8i5F5xI5uVi/xE1E1v9af7+JpRBjl5B" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <!-- Additional scripts or JavaScript libraries can be included here -->
-    
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
