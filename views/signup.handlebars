@@ -1,40 +1,30 @@
 <div class="login">
-<main class="page-wrapper">
-        <!-- Page content-->
-        <div class="d-lg-flex position-relative h-100">
-          <!-- Sign up form-->
-          <div class="d-flex flex-column align-items-center w-50 h-100 px-3 px-lg-5 pt-5">
-            <div class="w-100 mt-auto" style="max-width: 526px;">
-              <h1>No account? Sign Up</h1>
-              <p class="pb-3 mb-3 mb-lg-4">Have an account already?&nbsp;&nbsp;<a href="/login">Sign in here!</a></p>
-              <form class="needs-validation" novalidate="">
-                <div class="row row-cols-1 row-cols-sm-2">
-                  <div class="col mb-4">
-                    <input class="form-control form-control-lg" type="text" placeholder="Your name" required="">
-                  </div>
-                  <div class="col mb-4">
-                    <input class="form-control form-control-lg" type="email" placeholder="Email address" required="">
-                  </div>
-                </div>
-                <div class="password-toggle mb-4">
-                  <input class="form-control form-control-lg" type="password" placeholder="Password" required="">
-                </div>
-                <div class="password-toggle mb-4">
-                  <input class="form-control form-control-lg" type="password" placeholder="Confirm password" required="">
-                </div>
-                <div class="pb-4">
-                  <div class="form-check my-2">
-                    <input class="form-check-input" type="checkbox" id="terms">
-                    <label class="form-check-label ms-1" for="terms">I agree to <a href="#">Terms &amp; Conditions</a></label>
-                  </div>
-                </div>
-                <button class="btn btn-lg btn-primary w-100 mb-4 button" type="submit">Sign up</button>
-              </form>
+  <main class="page-wrapper">
+    <!-- Page content-->
+    <div class="d-lg-flex position-relative h-100">
+      <!-- Sign up form-->
+      <div class="d-flex flex-column align-items-center w-50 h-100 px-3 px-lg-5 pt-5">
+        <div class="w-100 mt-auto" style="max-width: 526px;">
+          <h1>No account? Sign Up</h1>
+          <p class="pb-3 mb-3 mb-lg-4">Have an account already?&nbsp;&nbsp;<a href="/login">Sign in here!</a></p>
+          <form class="signup-form">
+              <div class="col mb-4">
+                <input id="email" class="form-control form-control-lg" type="email" placeholder="Email address" required="">
+              </div>
+            <div class="password-toggle mb-4">
+              <input id="password" class="form-control form-control-lg" type="password" placeholder="Password" required="">
             </div>
-            <!-- Copyright-->
-            <p class="w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 526px;"><span class="text-muted">© 2023 All rights reserved.</p>
-          </div>
-          <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url('/images/background_image.jpeg'); background-position: 55% 20%"></div>
+            <div class="password-toggle mb-4">
+              <input id="confirm-password" class="form-control form-control-lg" type="password" placeholder="Confirm password" required="">
+            </div>
+            <button class="btn btn-lg btn-primary w-100 mb-4 button" type="submit">Sign up</button>
+          </form>
         </div>
-      </main>
+        <!-- Copyright-->
+        <p class="w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 526px;"><span class="text-muted">© 2023 All rights reserved.</p>
       </div>
+      <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url('/images/background_image.jpeg'); background-position: 55% 20%"></div>
+    </div>
+  </main>
+</div>
+<script src="./js/signup.js"></script>

@@ -16,6 +16,21 @@ const locationData = [
   {
     name: "York",
   },
+  {
+    name: "East York",
+  },
+  {
+    name: "Midtown Toronto",
+  },
+  {
+    name: "West Toronto",
+  },
+  {
+    name: "East End",
+  },
+  {
+    name: "West End",
+  },
 ];
 
 const seedLocations = () => Location.bulkCreate(locationData);

@@ -9,16 +9,16 @@
           <div class="w-100 mt-auto" style="max-width: 526px;">
             <h1>Welcome to Barking Buddies</h1>
             <p class="pb-3 mb-3 mb-lg-4">Don't have an account yet?&nbsp;&nbsp;<a href="/signup">Signup here!</a></p>
-            <form novalidate="">
+            <form class="login-form">
               <div class="pb-3 mb-3">
                 <div class="position-relative"><i class="bi bi-envelope fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
-                  <input class="form-control form-control-lg ps-5" type="email" placeholder="Email address" required="">
+                  <input id="email" class="form-control form-control-lg ps-5" type="email" placeholder="Email address" required="">
                 </div>
               </div>
               <div class="mb-4">
                 <div class="position-relative"><i class="bi bi-lock fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
                   <div class="password-toggle">
-                    <input class="form-control form-control-lg ps-5" type="password" placeholder="Password" required="">
+                    <input id="password" class="form-control form-control-lg ps-5" type="password" placeholder="Password" required="">
                   </div>
                 </div>
               </div>
@@ -33,4 +33,6 @@
         <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url('/images/background_image.jpeg'); background-position: 55% 20%"></div>
       </div>
     </main>
-    </div>
+</div>
+
+<script src="./js/login.js"></script>

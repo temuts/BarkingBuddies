@@ -1,0 +1,70 @@
+ <div class="container-md pt-5 meetup">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="/img/{{img}}"
+              class="img-fluid rounded-circle"
+              alt="..."
+            />
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <small class="text-body-secondary">Meet the legendary</small>
+            <h1 class="card-title">{{name}}</h1>
+            <small class="text-body-secondary"
+              >Breed: <span>{{breed}}</span></small
+            >
+            <small class="text-body-secondary"
+              >Dog Years: <span>{{age}}</span></small
+            >
+            <small class="text-body-secondary">Gender: <span>{{gender}}</span></small>
+            <br />
+            <p class="card-text">
+              {{description}}
+            </p>
+            <div class="owner-info">
+              <div class="row">
+                <div class="col-2">
+                  <img src="{{user.profile.image}}" class="img-fluid" alt="..." />
+                </div>
+                <div class="col-8">
+                  <h4>{{user.profile.name}}</h4>
+                  <p>
+                    {{user.profile.description}}
+                  </p>
+                </div>
+
+                <div class="row justify-content-evenly pt-5">
+                  <div class="col-5 meetup-info">
+                    <h4>Availability</h4>
+                    <div class="location">
+                      <h3>Monday</h3>
+                    </div>
+                  </div>
+
+                  <div class="col-5 meetup-info">
+                    <h4>Location</h4>
+                    <div class="location">
+                      <h3>North York</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row justify-content-evenly pt-5">
+                  <div class="col-5">
+                    
+                    <div class="mingle-btn" id="mingle-btn" data-id="{{id}}">
+                      <h1>Request to Mingle!</h1>
+                    
+                  </a>
+                  </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
