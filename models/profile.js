@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const profileImage = require("../utils/profileImageGen");
 
 class Profile extends Model {}
 
@@ -41,6 +42,12 @@ Profile.init(
     },
   },
   {
+    hooks: {
+      beforeCreate: async (newProfileData) => {
+        newProfileData.image = await profileImage.generate();
+        return newProfileData;
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,

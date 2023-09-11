@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
 
     res.render("homepage", {
       browse_pets,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -51,6 +51,9 @@ router.get("/pets/:id", async (req, res) => {
             exclude: ["password", "email"],
           },
           include: [
+            {
+              model: Profile,
+            },
             {
               model: Days,
               through: Availability,
@@ -79,24 +82,24 @@ router.get("/profile", (req, res) => {
 // Route for user login - if logged in, redirect to the home page
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/',);
+    res.redirect("/");
     return;
   }
-  res.render('login');
+  res.render("login");
 });
 
 // Route for user logout - on log out, redirect to the home page
-router.get('/logout', (req, res) => {
-  res.redirect('/');
+router.get("/logout", (req, res) => {
+  res.redirect("/");
   return;
 });
 
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect("/profile");
     return;
   } else {
-    res.render('signup');
+    res.render("signup");
   }
 });
 
