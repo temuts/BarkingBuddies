@@ -40,6 +40,13 @@ Profile.init(
         key: "location_id",
       },
     },
+    days_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "days",
+        key: "day_id",
+      },
+    },
   },
   {
     hooks: {

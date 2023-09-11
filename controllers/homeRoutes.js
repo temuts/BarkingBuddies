@@ -1,14 +1,6 @@
 const router = require("express").Router();
 
-const {
-  Pets,
-  Availability,
-  User,
-  Buddies,
-  Days,
-  Location,
-  Profile,
-} = require("../models");
+const { Pets, User, Buddies, Days, Location, Profile } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -21,8 +13,15 @@ router.get("/", async (req, res) => {
           },
           include: [
             {
-              model: Days,
-              through: Availability,
+              model: Profile,
+              include: [
+                {
+                  model: Days,
+                },
+                {
+                  model: Location,
+                },
+              ],
             },
           ],
         },
@@ -53,10 +52,14 @@ router.get("/pets/:id", async (req, res) => {
           include: [
             {
               model: Profile,
-            },
-            {
-              model: Days,
-              through: Availability,
+              include: [
+                {
+                  model: Days,
+                },
+                {
+                  model: Location,
+                },
+              ],
             },
           ],
         },
@@ -70,13 +73,13 @@ router.get("/pets/:id", async (req, res) => {
       logged_in: req.session.logged_in,
       ...pet,
     });
+    // res.json(pet);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.get("/profile", (req, res) => {
-
   //
   res.render("profile");
 });

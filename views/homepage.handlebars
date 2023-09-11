@@ -62,9 +62,9 @@
                   <p class="card-text clamp">
                     {{pet.description}}
                   </p>
-                  <small class="text-body-secondary">Mingles on: Tuesday</small>
+                  <small class="text-body-secondary">Mingles on: {{pet.user.profile.day.name_of_day}}</small>
                   <small class="text-body-secondary"
-                    >Location: Trinity Bellwoods</small
+                    >Location: {{pet.user.profile.location.name}}</small
                   >
                 </div>
               </div>

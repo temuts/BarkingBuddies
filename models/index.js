@@ -23,6 +23,24 @@ Pets.belongsTo(User, {
   foreignKey: "user_id",
 });
 
+// Location relation
+Profile.hasOne(Location, {
+  foreignKey: "location_id",
+});
+
+Location.belongsTo(Profile, {
+  foreignKey: "location_id",
+});
+
+// Days relation
+Profile.hasOne(Days, {
+  foreignKey: "day_id",
+});
+
+Days.belongsTo(Profile, {
+  foreignKey: "day_id",
+});
+
 // Buddies table many-to-many associations.
 User.belongsToMany(User, {
   through: {
