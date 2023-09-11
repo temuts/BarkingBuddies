@@ -8,6 +8,7 @@ const profileData = [
     image: "TBD",
     user_id: 1,
     location_id: 1,
+    days_id: 6,
   },
   {
     name: "Jane Smith",
@@ -16,6 +17,7 @@ const profileData = [
     image: "TBD",
     user_id: 2,
     location_id: 2,
+    days_id: 2,
   },
   {
     name: "Michael Johnson",
@@ -24,6 +26,7 @@ const profileData = [
     image: "TBD",
     user_id: 3,
     location_id: 2,
+    days_id: 5,
   },
   {
     name: "Emily Brown",
@@ -32,6 +35,7 @@ const profileData = [
     image: "TBD",
     user_id: 4,
     location_id: 5,
+    days_id: 1,
   },
   {
     name: "David Wilson",
@@ -40,6 +44,7 @@ const profileData = [
     image: "TBD",
     user_id: 5,
     location_id: 9,
+    days_id: 3,
   },
   {
     name: "Laura Davis",
@@ -49,6 +54,7 @@ const profileData = [
     image: "TBD",
     user_id: 6,
     location_id: 8,
+    days_id: 2,
   },
 ];
 
