@@ -197,6 +197,10 @@ color: rgb(168, 168, 168);
     cursor: pointer;
 }
 
+.mingle-btn h1{
+    pointer-events: none;
+}
+
 .owner-info{
     padding-top: 20px;
     border-radius: 20px;

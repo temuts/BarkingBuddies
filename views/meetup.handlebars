@@ -42,14 +42,14 @@
                   <div class="col-5 meetup-info">
                     <h4>Availability</h4>
                     <div class="location">
-                      <h3>Monday</h3>
+                      <h3>{{user.profile.day.name_of_day}}</h3>
                     </div>
                   </div>
 
                   <div class="col-5 meetup-info">
                     <h4>Location</h4>
                     <div class="location">
-                      <h3>North York</h3>
+                      <h3>{{user.profile.location.name}}</h3>
                     </div>
                   </div>
                 </div>
@@ -70,3 +70,5 @@
         </div>
       </div>
     </div>
+
+    <script src="/js/buddies.js"></script>
