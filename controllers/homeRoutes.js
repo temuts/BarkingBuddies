@@ -1,7 +1,39 @@
 const router = require("express").Router();
 
 const { Pets, User, Buddies, Days, Location, Profile } = require("../models");
+// POST route for login - search username and password to validate
+router.post("/login", async (req, res) => {
+  try {
+    // Check if the user is valid via the email sent.
+    const userData = await User.findOne({
+      where: { email: req.body.email },
+    });
 
+    if (!userData) {
+      res
+        .status(400)
+        .json({ err: "Incorrect email or password, please try again" });
+      return;
+    }
+
+    // Check if the password is valid
+    const validPassword = await userData.checkPassword(req.body.password);
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ err: "Incorrect email or password, please try again" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.user_id;
+      req.session.logged_in = true;
+      res.json({ user: userData, message: "You are now logged in!" });
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 router.get("/", async (req, res) => {
   try {
     const petsData = await Pets.findAll({
@@ -80,9 +112,10 @@ router.get("/pets/:id", async (req, res) => {
 });
 
 router.get("/profile", async (req, res) => {
-  //******** WE ARE HARDCODING THE SESSION ID. (4) ** needs to be fixed */
+  const userIdNum = req.session.user_id;
+  console.log("User ID in session:", userIdNum);
   try {
-    const profileData = await Profile.findByPk(4, {
+    const profileData = await Profile.findByPk(userIdNum, {
       include: [
         {
           model: Location,
@@ -95,14 +128,14 @@ router.get("/profile", async (req, res) => {
 
     const petsData = await Pets.findAll({
       where: {
-        user_id: 4,
+        user_id: userIdNum,
       },
     });
 
     const buddiesID_Data = await Buddies.findAll({
       attributes: ["to_user_id"],
       where: {
-        from_user_id: 4,
+        from_user_id: userIdNum,
       },
     });
 
@@ -128,15 +161,28 @@ router.get("/profile", async (req, res) => {
 
     const buddies_info = buddiesData.map((buddy) => buddy.get({ plain: true }));
 
-    console.log(profile);
-    console.log(pets);
-    console.log(buddies_info);
+    const daysData = await Days.findAll({
+      raw: true, 
+    });
+    const selectedDay = profile.days_id ? daysData.find(day => day.day_id === profile.days_id) : null;
+    // console.log(`profile.days_id: ${profile.days_id}`);
+    // console.log(`profileData:`, profileData);
+    // console.log(`Selected Day:`, selectedDay);
 
+    const locationData = profileData.location;
+
+    // console.log("User ID in session:", req.session.user_id);
+    // console.log(profile);
+    // console.log(pets);
+    // console.log(buddies_info);
+    // console.log(userId);
     // !!!!!!  we need to get buddies pets !!!!! 
     res.render("profile", {
       ...profile,
       pets,
       buddies_info,
+      selectedDay,
+      locationData,
     });
   } catch (err) {
     res.status(500).json(err);
