@@ -88,7 +88,7 @@ $(document).ready(function () {
 
             if (response.ok) {
                 // Redirect to the profile page on success
-                //window.location.replace('/profile');
+                window.location.replace('/profile');
             } else {
                 const responseData = await response.json();
                 if (responseData.err) {
