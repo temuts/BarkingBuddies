@@ -160,22 +160,12 @@ router.get("/profile", async (req, res) => {
     });
 
     const buddies_info = buddiesData.map((buddy) => buddy.get({ plain: true }));
-
     const daysData = await Days.findAll({
       raw: true, 
     });
     const selectedDay = profile.days_id ? daysData.find(day => day.day_id === profile.days_id) : null;
-    // console.log(`profile.days_id: ${profile.days_id}`);
-    // console.log(`profileData:`, profileData);
-    // console.log(`Selected Day:`, selectedDay);
-
-    const locationData = profileData.location;
-
-    // console.log("User ID in session:", req.session.user_id);
-    // console.log(profile);
-    // console.log(pets);
-    // console.log(buddies_info);
-    // console.log(userId);
+    const locationData = profileData.location.dataValues.name;
+console.log(`LOCATION DATA:`, locationData);
     // !!!!!!  we need to get buddies pets !!!!! 
     res.render("profile", {
       ...profile,

@@ -3,7 +3,7 @@
     </div>
     <div class="container mt-5">
         <div class="row justify-content-center"> 
-            <div class="col-md-5 user-profile-box text-center">
+            <div class="col-md-5 user-profile-box text-center owner-container">
                 <div class="m-4">
                     <img src="user-profile.jpg" alt="User Profile Picture" class="img-fluid rounded-circle">
                 </div>
@@ -11,7 +11,7 @@
                 <p>{{description}}</p>
             </div>
             {{#each pets as |pet|}}
-            <div class="col-md-5 dog-profile-box text-center">
+            <div class="col-md-5 dog-profile-box text-center pet-container">
                 <div class="m-4">
                     <img src="user-profile.jpg" alt="User Profile Picture" class="img-fluid rounded-circle">
                 </div>
@@ -24,25 +24,25 @@
             
         </div>
     </div>
-    
-    <!-- Container for Availability and Location -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="form-group text-center border">
-                    <label for="availability">Availability</label>
-                    <div>{{day.name_of_day}}</div>
-                </div>
-                <div class="form-group text-center border mt-3">
-                    <label for="location">Location</label>
-                    <div>{{location.name}}</div>
-                </div>
+
+<div class="container-md p-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6 custom-container">
+            <div class="form-group text-center label-container">
+                <label for="availability"><strong>Availability:</strong></label>
+                <div>{{day.name_of_day}}</div>
+            </div>
+            <div class="form-group text-center mt-3 label-container">
+                <label for="location"><strong>Location:</strong></label>
+                <div>{{locationData}}</div>
             </div>
         </div>
     </div>
-    <div>
-    <table>
-        <thead>
+</div>
+
+<div class="container mt-8">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
             <tr>
                 <th>Buddy</th>
                 <th>Owner</th>
@@ -54,14 +54,17 @@
         <tbody>
             {{#each buddies_info as |buddy|}}
             <tr>
-                <td>TBD</td>
+                <td><img
+              src="/img/{{buddy.img}}"
+              class="img-fluid"
+              alt="..."
+            />TBD</td>
                 <td>{{buddy.name}}</td>
                 <td>{{buddy.day.name_of_day}}</td>
                 <td>{{buddy.location.name}}</td>
                 <td>{{buddy.phone}}</td>
             </tr>
             {{/each}}
-       
         </tbody>
     </table>
 </div>
