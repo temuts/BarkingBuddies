@@ -12,9 +12,6 @@ Profile.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    image: {
-      type: DataTypes.STRING,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,7 +22,10 @@ Profile.init(
     phone: {
       type: DataTypes.STRING,
       allowNull: false,
-    },   
+    },
+    image: {
+      type: DataTypes.STRING,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -40,21 +40,14 @@ Profile.init(
         key: "location_id",
       },
     },
-    days_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "days",
-        key: "day_id",
-      },
-    },
   },
   {
-    hooks: {
-      beforeCreate: async (newProfileData) => {
-        newProfileData.image = await profileImage.generate();
-        return newProfileData;
-      },
-    },
+    // hooks: {
+    //   beforeCreate: async (newProfileData) => {
+    //     newProfileData.image = await profileImage.generate();
+    //     return newProfileData;
+    //   },
+    // },
     sequelize,
     timestamps: false,
     freezeTableName: true,

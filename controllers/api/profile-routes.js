@@ -3,42 +3,42 @@ const { Profile } = require('../../models');
 const fileUpload = require('../../utils/uploadfile');
 
 // POST route for registering profile (name, description, phone, image, user_id)
-router.post('/profile', fileUpload("./public/uploads"), async (req, res) => {
+router.post('/register', fileUpload.fields([ {name: 'profilePicture', maxCount: 1}, {name: 'petPicture', maxCount: 1}]), async (req, res) => {
   try {
 
-    if (req.file) {
-        var registerUrl = `public/uploads${req.file.filename}`;
-    }
+    const profileInfo = await Profile.findOne({ where: { user_id: req.session.user_id } });
+    console.log(profileInfo);
+    if (!profileInfo) {
 
-    const profileData = await Profile.create({
+      // Access the uploaded profile picture and additional picture, if available
+      const profilePictureInfo = req.files['profilePicture'] ? req.files['profilePicture'][0] : null;
+      const petPictureInfo = req.files['petPicture'] ? req.files['petPicture'][0] : null;
+
+      const profilePicture = (profilePictureInfo ? `${profilePictureInfo.destination}/${profilePictureInfo.filename}`: null);
+      console.log(profilePicture);
+      // Define a function to check if a value is a string representing a file path
+      function isFilePath(value) {
+        return typeof value === 'string' && value.startsWith('/img/');
+      }
+      
+      const x = isFilePath(req.body.profilePicture) ? req.body.profilePicture: profilePicture;
+      console.log(x);
+      const profileData = await Profile.create({
         name: req.body.name,
         description: req.body.description,
         phone: req.body.phone,
-        image: registerUrl,
+        image: x,
         user_id: req.session.user_id
-    });
+      });
 
-    res.status(200).json(profileData);
+      res.status(200).json(profileData);
+
+    }    
 
   } catch (err) {
-    if (err.name === 'SequelizeValidationError') {
-      // Check if the error is specifically related to password length validation
-      const pwdError = err.errors.find(
-        (e) => e.path === 'password' && e.validatorKey === 'len'
-      );
-      if (pwdError) {
-        // If it's a password length validation error, send the error message
-        res.status(400).json({ err: pwdError.message });
-      } else {
-        // Handle other validation errors
-        const errorMessages = err.errors.map((e) => e.message);
-        console.log(errorMessages);
-        res.status(400).json({ errors: errorMessages });
-      }
-    } else {
-      console.log(err);
-      res.status(500).json(err);
-    }
+    // Handle errors
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
