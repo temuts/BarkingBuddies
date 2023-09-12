@@ -9,10 +9,11 @@ router.post("/", async (req, res) => {
     //   from_user_id: 1,
     //   to_user_id: 2,
     // }
-    const newBuddieConnection = await Buddies.create({ 
+    console.log(req.session.id);
+    const newBuddieConnection = await Buddies.create({
       ...req.body,
-      from_user_id: req.session.user_id
-     });
+      from_user_id: req.session.user_id,
+    });
     res.status(200).json(newBuddieConnection);
   } catch (err) {
     console.log(err);

@@ -79,9 +79,68 @@ router.get("/pets/:id", async (req, res) => {
   }
 });
 
-router.get("/profile", (req, res) => {
-  //
-  res.render("profile");
+router.get("/profile", async (req, res) => {
+  //******** WE ARE HARDCODING THE SESSION ID. (4) ** needs to be fixed */
+  try {
+    const profileData = await Profile.findByPk(4, {
+      include: [
+        {
+          model: Location,
+        },
+        {
+          model: Days,
+        },
+      ],
+    });
+
+    const petsData = await Pets.findAll({
+      where: {
+        user_id: 4,
+      },
+    });
+
+    const buddiesID_Data = await Buddies.findAll({
+      attributes: ["to_user_id"],
+      where: {
+        from_user_id: 4,
+      },
+    });
+
+    const profile = profileData.get({ plain: true });
+    const pets = petsData.map((pet) => pet.get({ plain: true }));
+    const buddies_IDs = buddiesID_Data.map((buddy) =>
+      buddy.get({ plain: true })
+    );
+
+    const buddiesData = await Profile.findAll({
+      where: {
+        user_id: buddies_IDs[0].to_user_id,
+      },
+      include: [
+        {
+          model: Location,
+        },
+        {
+          model: Days,
+        },
+      ],
+    });
+
+    const buddies_info = buddiesData.map((buddy) => buddy.get({ plain: true }));
+
+    console.log(profile);
+    console.log(pets);
+    console.log(buddies_info);
+
+    // !!!!!!  we need to get buddies pets !!!!! 
+    res.render("profile", {
+      ...profile,
+      pets,
+      buddies_info,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Route for user login - if logged in, redirect to the home page
