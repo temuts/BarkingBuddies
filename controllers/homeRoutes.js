@@ -1,39 +1,7 @@
 const router = require("express").Router();
 
 const { Pets, User, Buddies, Days, Location, Profile } = require("../models");
-// POST route for login - search username and password to validate
-router.post("/login", async (req, res) => {
-  try {
-    // Check if the user is valid via the email sent.
-    const userData = await User.findOne({
-      where: { email: req.body.email },
-    });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ err: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    // Check if the password is valid
-    const validPassword = await userData.checkPassword(req.body.password);
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ err: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.user_id;
-      req.session.logged_in = true;
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 router.get("/", async (req, res) => {
   try {
     const petsData = await Pets.findAll({
@@ -196,15 +164,25 @@ router.get("/logout", (req, res) => {
 
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/profile");
+    res.redirect("/register");
     return;
   } else {
-    res.render("signup");
+    res.render("signup", {
+      upload: true
+    });
   }
 });
 
 router.get("/register", (req, res) => {
-  res.render("register");
+  if (req.session.logged_in) {
+    res.render("register", {
+      logged_in: req.session.logged_in,
+      upload:true
+    });
+  } else {
+    res.redirect('/');
+    return;
+  }
 });
 
 module.exports = router;
