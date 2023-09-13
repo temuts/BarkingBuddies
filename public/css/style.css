@@ -286,10 +286,30 @@ th {
 }
 
 .owner-container:hover {
-    box-shadow: 0 0 20px #ca6f36; /* Apply a box shadow on hover */
+    box-shadow: 0 0 20px #ff680a; /* Apply a box shadow on hover */
 }
 
+.pet-pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
 
+.buddy-box-left{
+    background-color: #418b93;
+    color:#fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 10px;
+}
+
+.buddy-box-right{
+    background-color: #4c7c82;
+    color:#fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 10px;
+}
 /* ================= SIGN UP / LOGIN PAGE ==================== */
 
 .login main{

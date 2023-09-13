@@ -40,31 +40,35 @@
     </div>
 </div>
 
-<div class="container mt-8">
-    <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th>Buddy</th>
-                <th>Owner</th>
-                <th>Dates Available</th>
-                <th>Location</th>
-                <th>Phone Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each buddies_info as |buddy|}}
-            <tr>
-                <td><img
-              src="/img/{{buddy.img}}"
-              class="img-fluid"
-              alt="..."
-            />TBD</td>
-                <td>{{buddy.name}}</td>
-                <td>{{buddy.day.name_of_day}}</td>
-                <td>{{buddy.location.name}}</td>
-                <td>{{buddy.phone}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+<div class="container-md p-3">
+  <div class="row justify-content-center">
+    <!-- Buddy Information on the Left -->
+    <div class="col-md-3 text-center buddy-box-left">
+      <h4>Buddy Information</h4>
+      {{#each buddiesPetValues as |buddies|}}
+      <div class="buddy">
+        <img src="/img/{{buddies.img}}" class="img-fluid pet-pic" alt="..." />
+        <p><strong>Name:</strong> {{buddies.name}}</p>
+      </div>
+      {{/each}}
+    </div>
+
+    <!-- Owner Information on the Right -->
+    <div class="col-md-3 buddy-box-right">
+      <h4>Owner Information</h4>
+      {{#each buddies_info as |buddy|}}
+      <div>
+        <p><strong>Owner:</strong> {{buddy.name}}</p>
+        <p><strong>Dates Available:</strong> {{buddy.day.name_of_day}}</p>
+        <p><strong>Location:</strong> {{buddy.location.name}}</p>
+        <p><strong>Phone Number:</strong> {{buddy.phone}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </div>
+
+
+
+
+

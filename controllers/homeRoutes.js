@@ -113,7 +113,7 @@ router.get("/pets/:id", async (req, res) => {
 
 router.get("/profile", async (req, res) => {
   const userIdNum = req.session.user_id;
-  console.log("User ID in session:", userIdNum);
+  // console.log("User ID in session:", userIdNum);
   try {
     const profileData = await Profile.findByPk(userIdNum, {
       include: [
@@ -158,19 +158,26 @@ router.get("/profile", async (req, res) => {
         },
       ],
     });
-
+    const buddiesPetInfo = await Pets.findAll({
+      where: {
+        user_id: buddies_IDs[0].to_user_id,
+      },
+    });
+    const buddiesPetValues = buddiesPetInfo.map((pet)=>pet.dataValues);
+    // console.log("BUDDIES PET VALUES", buddiesPetValues);
     const buddies_info = buddiesData.map((buddy) => buddy.get({ plain: true }));
+    // console.log("BUDDIES INFO", buddies_info);
     const daysData = await Days.findAll({
       raw: true, 
     });
     const selectedDay = profile.days_id ? daysData.find(day => day.day_id === profile.days_id) : null;
     const locationData = profileData.location.dataValues.name;
-console.log(`LOCATION DATA:`, locationData);
-    // !!!!!!  we need to get buddies pets !!!!! 
+
     res.render("profile", {
       ...profile,
       pets,
       buddies_info,
+      buddiesPetValues,
       selectedDay,
       locationData,
     });
