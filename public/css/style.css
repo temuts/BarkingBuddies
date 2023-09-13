@@ -389,6 +389,34 @@ th {
     background-color: #f2f2f2;
 }
 
+.custom-container {
+    background-color: #aac7cb;
+    border-radius: 10px;
+}
+
+.label-container {
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px
+}
+
+.pet-container {
+    /* Add your normal styles here */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.pet-container:hover {
+    box-shadow: 0 0 20px #316e75; /* Apply a box shadow on hover */
+}
+
+.owner-container {
+    /* Add your normal styles here */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.owner-container:hover {
+    box-shadow: 0 0 20px #ca6f36; /* Apply a box shadow on hover */
+}
 
 
 /* ================= SIGN UP / LOGIN PAGE ==================== */
