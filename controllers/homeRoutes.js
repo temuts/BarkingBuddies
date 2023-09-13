@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { withAuth, withProfile } = require("../utils/auth");
 
 const { Pets, User, Buddies, Days, Location, Profile } = require("../models");
 
@@ -40,7 +41,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/pets/:id", async (req, res) => {
+router.get("/pets/:id", withAuth, async (req, res) => {
   try {
     const petData = await Pets.findByPk(req.params.id, {
       include: [
@@ -79,7 +80,7 @@ router.get("/pets/:id", async (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   const userIdNum = req.session.user_id;
   // console.log("User ID in session:", userIdNum);
   try {
@@ -131,14 +132,16 @@ router.get("/profile", async (req, res) => {
         user_id: buddies_IDs[0].to_user_id,
       },
     });
-    const buddiesPetValues = buddiesPetInfo.map((pet)=>pet.dataValues);
+    const buddiesPetValues = buddiesPetInfo.map((pet) => pet.dataValues);
     // console.log("BUDDIES PET VALUES", buddiesPetValues);
     const buddies_info = buddiesData.map((buddy) => buddy.get({ plain: true }));
     // console.log("BUDDIES INFO", buddies_info);
     const daysData = await Days.findAll({
-      raw: true, 
+      raw: true,
     });
-    const selectedDay = profile.days_id ? daysData.find(day => day.day_id === profile.days_id) : null;
+    const selectedDay = profile.days_id
+      ? daysData.find((day) => day.day_id === profile.days_id)
+      : null;
     const locationData = profileData.location.dataValues.name;
 
     res.render("profile", {
@@ -175,7 +178,7 @@ router.get("/signup", (req, res) => {
     return;
   } else {
     res.render("signup", {
-      upload: true
+      upload: true,
     });
   }
 });
@@ -184,11 +187,36 @@ router.get("/register", (req, res) => {
   if (req.session.logged_in) {
     res.render("register", {
       logged_in: req.session.logged_in,
-      upload:true
+      upload: true,
     });
   } else {
-    res.redirect('/');
+    res.redirect("/");
     return;
+  }
+});
+
+router.get("/registration-complete", async (req, res) => {
+  try {
+    console.log("about to start the search...");
+    const findProfiles = await Profile.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const profiles_arrays = findProfiles.map((profiles) =>
+      profiles.get({ plain: true })
+    );
+    console.log("findProfiles:", findProfiles);
+    console.log("profiles_arrays:", profiles_arrays);
+
+    if (profiles_arrays.length > 0) {
+      res.json(true);
+      return;
+    }
+    res.json(false);
+  } catch (err) {
+    console.error("Error in /registration-complete:", err);
+    res.status(500).json(err);
   }
 });
 
