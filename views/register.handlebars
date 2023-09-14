@@ -13,7 +13,7 @@
                             <div class="mb-4">
                                 <div class="pic-holder">
                                     <img id="petPic" class="pic">
-                                    <input class="uploadPicture" type="file" name="petsPicture" id="petpicture" accept="image/*" style="opacity: 0;" />
+                                    <input class="uploadPicture" type="file" name="petPicture" id="petpicture" accept="image/*" style="opacity: 0;" />
                                     <label for="petpicture" class="upload-file-block">
                                         <div class="text-center">
                                             <div class="mb-2">
@@ -27,29 +27,36 @@
                                 </div>
                             </div>
                             <h5>Your Dog's Name</h5>
-                            <h2><input type="text" class="form-control" placeholder="John Doe"></h2>
+                            <h2><input id="petName" type="text" class="form-control" placeholder="John Doe" ></h2>
                             <div class="pb-3">
                                 <h5>Bio</h5>
                                 <small class="form-text text-muted bio-text">Provide some details about your dog that you would want their Barking Buddies to know! This can include favourite hobbies, defining characteristics, or random facts.</small>
                             </div>
-                            <p><textarea class="form-control" rows="5" placeholder="hobbies, fun facts, etc."></textarea></p>
+                            <p><textarea id="petDescription" class="form-control" rows="5" placeholder="hobbies, fun facts, etc."></textarea></p>
                             <div class="pb-3">
                                 <h5>Barking Buddy Details</h5>
                                 <!-- Text input for Age -->
                                 <div class="mb-3">
-                                    <label for="dogAge" class="form-label">Age</label>
-                                    <input type="text" class="form-control" id="dogAge" placeholder="Age">
+                                    <label for="petAge" class="form-label">Age</label>
+                                    <input type="text" class="form-control" id="petAge" placeholder="Age">
                                 </div>
                                 <!-- Text input for Breed -->
                                 <div class="mb-3">
-                                    <label for="dogBreed" class="form-label">Breed</label>
-                                    <input type="text" class="form-control" id="dogBreed" placeholder="Breed">
+                                    <label for="petBreed" class="form-label">Breed</label>
+                                    <input type="text" class="form-control" id="petBreed" placeholder="Breed">
                                 </div>
-                                <!-- Text input for Gender -->
+                                <!-- Radio for Gender -->
                                 <div class="mb-3">
-                                    <label for="dogGender" class="form-label">Gender</label>
-                                    <input type="text" class="form-control" id="dogGender" placeholder="Gender">
+                                    <label for="petGender"class="form-label">Gender:</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="petGender" id="maleRadio" value="Male">
+                                        <label class="form-check-label" for="maleRadio">Male</label>
                                     </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="petGender" id="femaleRadio" value="Female">
+                                        <label class="form-check-label" for="femaleRadio">Female</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,41 +94,29 @@
                                 <h5>Tel:</h5>
                                 <h2><input id="phone" type="text" class="form-control" placeholder="(888)-888-8888"></h2>
                             </div>
+                            <div class="pb-3">
+                                <h5>Location</h5>
+                                <div class="mb-3">
+                                    <select class="form-select" id="locationDropdown">
+                                        <option selected>Select a location</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pb-3">
+                                <h5>Availability</h5>
+                                <div class="mb-3">
+                                    <select class="form-select" id="daysDropdown">
+                                        <option selected>Select an avaialable day</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 </form>
             </div>
-                <button type="button" class="btn custom-dark-blue-btn m-3" data-bs-toggle="modal" data-bs-target="#dayModal">Select Days of the Week</button>
-                <!-- The day selector modal -->
-            <div class="modal fade" id="dayModal" tabindex="-1" aria-labelledby="dayModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="dayModalLabel">Select Days of the Week</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    <div class="modal-body">
-                        <button type="button" class="btn btn-secondary" id="clearSelectionBtn">Clear</button>
-                        <div>
-                            <button class="btn custom-light-btn day-button" data-day="Sunday">Sunday</button>
-                            <button class="btn custom-light-btn day-button" data-day="Monday">Monday</button>
-                            <button class="btn custom-light-btn day-button" data-day="Tuesday">Tuesday</button>
-                            <button class="btn custom-light-btn day-button" data-day="Wednesday">Wednesday</button>
-                            <button class="btn custom-light-btn day-button" data-day="Thursday">Thursday</button>
-                            <button class="btn custom-light-btn day-button" data-day="Friday">Friday</button>
-                            <button class="btn custom-light-btn day-button" data-day="Saturday">Saturday</button>
-                        </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn custom-dark-blue-btn" id="saveDaysBtn" data-bs-dismiss="modal">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="selectedDaysDisplay"></div>
-                <div class="p-3">
+                
+                <div class="p-3 text-center">
                 <button type="button" class="btn btn-lg custom-disabled-btn signup-btn" id="signup">Sign Me Up!</button>
             </div>
         </div>

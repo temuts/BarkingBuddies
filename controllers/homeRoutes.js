@@ -95,6 +95,7 @@ router.get("/profile", withAuth, async (req, res) => {
       ],
     });
 
+    
     const petsData = await Pets.findAll({
       where: {
         user_id: userIdNum,
