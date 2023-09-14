@@ -430,19 +430,28 @@ th {
 }
 
 .buddy-box-left{
-    background-color: #418b93;
+    background-color:#10474d;
     color:#fff;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    padding-top: 10px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+
 }
 
 .buddy-box-right{
-    background-color: #4c7c82;
+    background-color: #305e63;;
     color:#fff;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding-top: 10px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .no-buddies-box{
@@ -452,6 +461,10 @@ th {
 
 .buddy-name{
     color:#e59558;
+}
+
+.buddy-owner-header{
+    text-underline-position: below;
 }
 /* ================= SIGN UP / LOGIN PAGE ==================== */
 
