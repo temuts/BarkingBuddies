@@ -12,7 +12,8 @@ router.post('/register', fileUpload.fields([{name: 'petPicture', maxCount: 1}]),
 
       // Access the uploaded profile picture and additional picture, if available
       const petPictureInfo = req.files['petPicture'] ? req.files['petPicture'][0] : null;
-      const petPicture = (petPictureInfo ? `${petPictureInfo.destination}/${petPictureInfo.filename}`: null);
+      //const petPicture = (petPictureInfo ? `${petPictureInfo.destination}/${petPictureInfo.filename}`: null);
+      const petPicture = petPictureInfo ? petPictureInfo.destination.replace('public/', '') + '/' + petPictureInfo.filename : null
       console.log(petPicture);
 
       // Define a function to check if a value is a string representing a file path
