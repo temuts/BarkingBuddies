@@ -404,27 +404,29 @@ th {
 }
 
 .pet-container {
-    /* Add your normal styles here */
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .pet-container:hover {
-    box-shadow: 0 0 20px #316e75; /* Apply a box shadow on hover */
+    box-shadow: 0 0 25px #316e75; 
 }
 
 .owner-container {
-    /* Add your normal styles here */
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .owner-container:hover {
-    box-shadow: 0 0 20px #ff680a; /* Apply a box shadow on hover */
+    box-shadow: 0 0 25px #ff680a;
 }
 
 .pet-pic{
     width: 100px;
     height: 100px;
     border-radius: 100%;
+}
+.profile-pic{
+    width: 200px;
+    height: 200px;
 }
 
 .buddy-box-left{
@@ -441,6 +443,15 @@ th {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding-top: 10px;
+}
+
+.no-buddies-box{
+    background-color: #d5a2c6;
+    border-radius: 10px;
+}
+
+.buddy-name{
+    color:#e59558;
 }
 /* ================= SIGN UP / LOGIN PAGE ==================== */
 
