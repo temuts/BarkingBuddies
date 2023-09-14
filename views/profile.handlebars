@@ -43,22 +43,21 @@
 <div class="container-md p-3">
   <div class="row justify-content-center">
     {{#if buddies_info.length}}
-    <div class="col-md-3 text-center buddy-box-left">
-      <h4 class="pb-2">Buddy:</h4>
+    <!-- Buddy Information -->
+    <div class="col-md-5 col-sm-6 text-center">
+      <h4 class="pb-2">My Buddies</h4>
       {{#each buddiesPetValues as |buddies|}}
-      <div class="buddy">
+      <div class="buddy buddy-box-left">
         <img src="/img/{{buddies.img}}" class="img-fluid pet-pic" alt="..." />
-        <p><h4 class = "buddy-name">{{buddies.name}}</h4></p>
+        <p><h4 class="buddy-name">{{buddies.name}}</h4></p>
       </div>
       {{/each}}
     </div>
-    {{/if}}
-    
-    {{#if buddies_info.length}}
-    <div class="col-md-3 buddy-box-right">
-      <h4>Owner Information:</h4>
+    <!-- Owner Information -->
+    <div class="col-md-5 col-sm-6 text-center">
+      <h4 class="pb-2">Owner Information:</h4>
       {{#each buddies_info as |buddy|}}
-      <div>
+      <div class="buddy-box-right">
         <p><strong>Owner:</strong> {{buddy.name}}</p>
         <p><strong>Day Available:</strong> {{buddy.day.name_of_day}}</p>
         <p><strong>Location:</strong> {{buddy.location.name}}</p>
@@ -68,13 +67,12 @@
     </div>
     {{else}}
     <!-- Display a message when there are no buddies -->
-    <div class="col-md-6 text-center no-buddies-box pt-3 mb-3">
+    <div class="col-md-12 col-sm-12 text-center no-buddies-box pt-3 mb-3">
       <p><strong>You have no buddies yet. Please find buddies to mingle with on the homepage!</strong></p>
     </div>
     {{/if}}
   </div>
 </div>
-
 
 
 
