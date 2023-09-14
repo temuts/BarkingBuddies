@@ -82,7 +82,6 @@ router.get("/pets/:id", withAuth, async (req, res) => {
 
 router.get("/profile", withAuth, async (req, res) => {
   const userIdNum = req.session.user_id;
-  // console.log("User ID in session:", userIdNum);
   try {
     const profileData = await Profile.findByPk(userIdNum, {
       include: [
@@ -111,7 +110,7 @@ router.get("/profile", withAuth, async (req, res) => {
         from_user_id: userIdNum,
       },
     });
-    console.log(`BUDDIES ID DATA:`, buddiesID_Data);
+    
     const buddies_IDs = buddiesID_Data.map((buddy) =>
       buddy.get({ plain: true })
     );
@@ -120,27 +119,30 @@ router.get("/profile", withAuth, async (req, res) => {
     let buddiesPetValues = [];
 
     if (buddies_IDs.length > 0) {
-      const buddiesData = await Profile.findAll({
-        where: {
-          user_id: buddies_IDs[0].to_user_id,
-        },
-        include: [
-          {
-            model: Location,
+      for (const buddyId of buddies_IDs) {
+        const buddiesData = await Profile.findAll({
+          where: {
+            user_id: buddyId.to_user_id,
           },
-          {
-            model: Days,
+          include: [
+            {
+              model: Location,
+            },
+            {
+              model: Days,
+            },
+          ],
+        });
+        
+        const buddiesPetInfo = await Pets.findAll({
+          where: {
+            user_id: buddyId.to_user_id,
           },
-        ],
-      });
-      const buddiesPetInfo = await Pets.findAll({
-        where: {
-          user_id: buddies_IDs[0].to_user_id,
-        },
-      });
-
-      buddiesPetValues = buddiesPetInfo.map((pet) => pet.dataValues);
-      buddies_info = buddiesData.map((buddy) => buddy.get({ plain: true }));
+        });
+        
+        buddiesPetValues.push(...buddiesPetInfo.map((pet) => pet.dataValues));
+        buddies_info.push(...buddiesData.map((buddy) => buddy.get({ plain: true })));
+      }
     }
     
     const daysData = await Days.findAll({
@@ -163,6 +165,7 @@ router.get("/profile", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 
 // Route for user login - if logged in, redirect to the home page
