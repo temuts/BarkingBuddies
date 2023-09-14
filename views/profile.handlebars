@@ -1,19 +1,20 @@
 <div class="container-md pt-5 text-center"> 
-        <h1 class="display-6">My Profile</h1> 
+        <h1 class="display-6"><strong>My Profile</strong></h1> 
     </div>
     <div class="container mt-5">
         <div class="row justify-content-center"> 
             <div class="col-md-5 user-profile-box text-center owner-container">
                 <div class="m-4">
-                    <img src="user-profile.jpg" alt="User Profile Picture" class="img-fluid rounded-circle">
+                    <img src="/img/{{image}}" alt="User Profile Picture" class="img-fluid rounded-circle">
                 </div>
                 <h2 class="mt-3">{{name}}</h2>
                 <p>{{description}}</p>
+                <p class="text-center"><strong>Phone Number:</strong> {{phone}}</p>
             </div>
             {{#each pets as |pet|}}
             <div class="col-md-5 dog-profile-box text-center pet-container">
                 <div class="m-4">
-                    <img src="user-profile.jpg" alt="User Profile Picture" class="img-fluid rounded-circle">
+                    <img src="/img/{{img}}" alt="User Profile Picture" class="img-fluid rounded-circle profile-pic">
                 </div>
                 <h2 class="mt-3">{{pet.name}}</h2>
                 <p>{{pet.description}}</p>
@@ -39,35 +40,40 @@
         </div>
     </div>
 </div>
-
 <div class="container-md p-3">
   <div class="row justify-content-center">
-    <!-- Buddy Information on the Left -->
+    {{#if buddies_info.length}}
     <div class="col-md-3 text-center buddy-box-left">
-      <h4>Buddy Information</h4>
+      <h4 class="pb-2">Buddy:</h4>
       {{#each buddiesPetValues as |buddies|}}
       <div class="buddy">
         <img src="/img/{{buddies.img}}" class="img-fluid pet-pic" alt="..." />
-        <p><strong>Name:</strong> {{buddies.name}}</p>
+        <p><h4 class = "buddy-name">{{buddies.name}}</h4></p>
       </div>
       {{/each}}
     </div>
-
-    <!-- Owner Information on the Right -->
+    {{/if}}
+    
+    {{#if buddies_info.length}}
     <div class="col-md-3 buddy-box-right">
-      <h4>Owner Information</h4>
+      <h4>Owner Information:</h4>
       {{#each buddies_info as |buddy|}}
       <div>
         <p><strong>Owner:</strong> {{buddy.name}}</p>
-        <p><strong>Dates Available:</strong> {{buddy.day.name_of_day}}</p>
+        <p><strong>Day Available:</strong> {{buddy.day.name_of_day}}</p>
         <p><strong>Location:</strong> {{buddy.location.name}}</p>
         <p><strong>Phone Number:</strong> {{buddy.phone}}</p>
       </div>
       {{/each}}
     </div>
+    {{else}}
+    <!-- Display a message when there are no buddies -->
+    <div class="col-md-6 text-center no-buddies-box pt-3 mb-3">
+      <p><strong>You have no buddies yet. Please find buddies to mingle with on the homepage!</strong></p>
+    </div>
+    {{/if}}
   </div>
 </div>
-
 
 
 
