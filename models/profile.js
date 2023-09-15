@@ -49,12 +49,12 @@ Profile.init(
     },
   },
   {
-    // hooks: {
-    //   beforeCreate: async (newProfileData) => {
-    //     newProfileData.image = await profileImage.generate();
-    //     return newProfileData;
-    //   },
-    // },
+    hooks: {
+      beforeCreate: async (newProfileData) => {
+        newProfileData.image = await profileImage.generate();
+        return newProfileData;
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
